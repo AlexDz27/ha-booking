@@ -9,6 +9,11 @@ body {
   color: #353535;
 }
 
+img {
+  max-width: 100%;
+  height: auto;
+}
+
 h1 {
   color: #343434;
   font-size: 29px;
@@ -374,9 +379,17 @@ textarea:focus {
   margin-bottom: 0.3em;
 }
 
+.popup__pictures {
+  display: flex;
+  flex-wrap: wrap;
+}
+
 .popup__pictures li {
   display: inline-block;
   vertical-align: middle;
+
+  max-width: 85px;
+  max-height: 85px;
 }
 
 .popup__avatar {
