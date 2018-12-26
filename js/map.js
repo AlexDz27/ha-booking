@@ -1,12 +1,11 @@
 var ads = createAds(8);
-var pinTemplate = document.querySelector('template').content.querySelector('.map__pin');
-var mapCardTemplate = document.querySelector('template').content.querySelector('.map__card');
 
 renderAllPins(ads);
 renderFirstAdMapCard();
 
 // по идее потом для клика будет свой кард
 function renderFirstAdMapCard() {
+  var mapCardTemplate = document.querySelector('template').content.querySelector('.map__card');
   var firstAd = ads[0];
   var typeMap = {
     flat: 'Квартира',
@@ -51,6 +50,8 @@ function renderAllPins(ads) {
 }
 
 function renderPin(ad) {
+  var pinTemplate = document.querySelector('template').content.querySelector('.map__pin');
+
   var pinEl = pinTemplate.cloneNode(true);
 
   pinEl.style.left = ad.location.x + 'px';
