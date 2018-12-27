@@ -24,3 +24,14 @@ function getArrRandomPart(arr) {
 
   return arr.slice(start, end);
 }
+
+function toArray(item) {
+  return Array.prototype.slice.call(item);
+}
+
+function getSelectOptions(selectEl) {
+  return selectEl.options;
+}
+function getSelectedOptionFromSelect(selectEl) {
+  return selectEl.options[selectEl.selectedIndex];
+}

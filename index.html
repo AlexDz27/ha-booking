@@ -13,7 +13,7 @@
 </header>
 
 <main>
-  <section class="map">
+  <section class="map map--faded">
     <div class="map__pins">
       <div class="map__pinsoverlay"><h2>И снова Токио!</h2></div>
 
@@ -86,28 +86,35 @@
     <h2 class="notice__title">Ваше объявление</h2>
 
     <form class="notice__form notice__form--disabled" method="post" enctype="multipart/form-data" autocomplete="off">
-      <fieldset class="notice__header">
-        <legend>Ваша фотография (для карты)</legend>
-        <div class="notice__photo">
-          <div class="upload">
-            <div class="notice__preview">
-              <img src="img/muffin.png" alt="Аватар пользователя"  width="40" height="44">
-            </div>
-            <input type="file" id="avatar">
-            <label class="drop-zone" for="avatar">Загрузите или&nbsp;перетащите сюда фото</label>
-            <p class="notice__info">Заполните все обязательные поля, назначьте цену, загрузите фотографии. Придумайте интересное описание. Оно сделает объявление более живым и привлекательным. Получившееся объявление должно давать гостям полное представление о вашем жилье.</p>
-          </div>
-        </div>
-      </fieldset>
+      <!--<fieldset class="notice__header">-->
+        <!--<legend>Ваша фотография (для карты)</legend>-->
+        <!--<div class="notice__photo">-->
+          <!--<div class="upload">-->
+            <!--<div class="notice__preview">-->
+              <!--<img src="img/muffin.png" alt="Аватар пользователя"  width="40" height="44">-->
+            <!--</div>-->
+            <!--<input required type="file" id="avatar">-->
+            <!--<label class="drop-zone" for="avatar">Загрузите или&nbsp;перетащите сюда фото</label>-->
+            <!--<p class="notice__info">Заполните все обязательные поля, назначьте цену, загрузите фотографии. Придумайте интересное описание. Оно сделает объявление более живым и привлекательным. Получившееся объявление должно давать гостям полное представление о вашем жилье.</p>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</fieldset>-->
 
       <fieldset class="form__element form__element--wide">
         <label for="title">Заголовок объявления</label>
-        <input id="title" name="title" type="text" placeholder="Милая, уютная квартирка в центре Токио">
+        <input minlength="5" required id="title" name="title" type="text"
+               placeholder="Милая, уютная квартирка в центре Токио">
       </fieldset>
 
       <fieldset class="form__element form__element--wide">
         <label for="address">Адрес</label>
-        <input id="address" name="address" type="text">
+        <input
+            required
+            id="address"
+            name="address"
+            type="text"
+            pattern="([1-8][0-9]{2}|9[0-8][0-9]|99[0-9]|10[0-9]{2}|1100), ([0-9]|[1-8][0-9]|9[0-9]|[1-6][0-9]{2}|70[0-4])"
+        >
       </fieldset>
 
       <fieldset class="form__element">
@@ -122,7 +129,7 @@
 
       <fieldset class="form__element">
         <label for="price">Цена за ночь, руб.</label>
-        <input id="price" name="price" type="number" placeholder="5000">
+        <input required min="200" id="price" name="price" type="number" placeholder="5000">
       </fieldset>
 
       <fieldset class="form__element">
@@ -159,7 +166,7 @@
         </select>
       </fieldset>
 
-      <fieldset class="form__element features form__element--wide">
+      <fieldset class="form__element notice-form__features features form__element--wide">
         <legend>Удобства: Wi-Fi, кухня, парковка, стиралка, лифт, кондиционер</legend>
 
         <input type="checkbox" name="features" value="wifi" id="feature-wifi">
@@ -186,15 +193,15 @@
         <textarea id="description" name="description" placeholder="Здесь расскажите о том, какое ваше жилье замечательное и вообще"></textarea>
       </fieldset>
 
-      <fieldset class="form__element form__element--wide">
-        <label>Фотографии жилья</label>
-        <div class="form__photo-container">
-          <div class="upload">
-            <input type="file" id="images">
-            <label for="images" class="drop-zone">Загрузите или&nbsp;перетащите сюда фото</label>
-          </div>
-        </div>
-      </fieldset>
+      <!--<fieldset class="form__element form__element&#45;&#45;wide">-->
+        <!--<label>Фотографии жилья</label>-->
+        <!--<div class="form__photo-container">-->
+          <!--<div class="upload">-->
+            <!--<input required type="file" id="images">-->
+            <!--<label for="images" class="drop-zone">Загрузите или&nbsp;перетащите сюда фото</label>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</fieldset>-->
 
       <fieldset class="form__element form__element--submit">
         <button class="form__submit" type="submit">Опубликовать</button>
@@ -232,15 +239,21 @@
     <p class="popup__description">Великолепная квартира-студия в центре Токио. Подходит как туристам, так и
       бизнесменам. Квартира полностью
       укомплектована и недавно отремонтирована.</p>
-    <ul class="popup__pictures">
-      <!--<li><img src=""></li>-->
-    </ul>
+    <ul class="popup__pictures"></ul>
   </article>
 
-  <button style="left: 200px; top: 400px;" class="map__pin"><img src="img/avatars/user07.png" width="40" height="40" draggable="false"></button>
+  <button data-ad-id="7" style="left: 200px; top: 400px;" class="map__pin">
+    <img src="img/avatars/user07.png" width="40" height="40" draggable="false">
+  </button>
+
+  <ul class="form__errors-list">
+    <!--<li class="form__errors-item errors-list__item">Bad input</li>-->
+  </ul>
 </template>
 
 <script src="js/utils.js"></script>
+<script src="js/startup.js"></script>
 <script src="js/map.js"></script>
+<script src="js/form.js"></script>
 </body>
 </html>

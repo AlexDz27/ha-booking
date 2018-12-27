@@ -587,13 +587,15 @@ textarea:focus {
 
 .notice__form input[type=file] {
   position: absolute;
-  left: -900em;
+  top: -15px;
+  opacity: 0;
 }
 
 .notice__form .upload {
   display: flex;
 
   min-height: 70px;
+  position: relative;
 }
 
 .notice__info {
@@ -712,4 +714,13 @@ textarea:focus {
 
 .footer-social-item-vk {
   background-position: -10px -10px;
+}
+
+.form__errors-list {
+  list-style: none;
+  max-width: 400px;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid #af19198c;
+  box-shadow: 0 0 3px #CC0000;
 }
