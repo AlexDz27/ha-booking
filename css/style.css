@@ -249,6 +249,9 @@ textarea:focus {
   left: 50%;
   top: 375px;
 
+  position: absolute;
+  z-index: 500;
+
   width: 65px;
   height: 65px;
 
